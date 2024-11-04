@@ -32,7 +32,10 @@ const GrievanceControllerNavBar = () => {
       case 0:
         navigate("/grievances"); // Navigate to the Dashboard
         break;
-    }
+        case 1:
+          navigate("/reports"); // Navigate to the Dashboard
+          break;
+      }
   };
 
   // Handle Tab Change
@@ -79,6 +82,7 @@ const GrievanceControllerNavBar = () => {
           }}
         >
           <Tab label="Grievances" />
+          <Tab label="Reports" />
         </Tabs>
       </Box>
 

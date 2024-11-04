@@ -60,8 +60,8 @@ const LoginForm = ({onLogin}) => {
       // Redirect based on role
       if (role === 'Student') {
         navigate('/grievances');  // Navigate to admin dashboard
-      } else if (role === 'admin') {
-        navigate('/grievance');  // Navigate to user dashboard
+      } else if (role === 'Admin') {
+        navigate('/admin-dashboard');  // Navigate to user dashboard
       } else if (role === 'faculty') {
         navigate('/user-nav');  // Navigate to manager dashboard
       } else if(role==='staff'){

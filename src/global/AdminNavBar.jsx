@@ -25,22 +25,13 @@ const AdminNavBar = () => {
     // Navigation based on tab selection
     switch (newValue) {
       case 0:
-        navigate("/dashboard"); // Navigate to the Dashboard
+        navigate("/admin-dashboard"); // Navigate to the Dashboard
         break;
       case 1:
-        navigate("/edit-profile"); // Navigate to Edit Profile
-        break;
-      case 2:
         navigate("/allusers"); // Navigate to All Users
         break;
-      case 3:
-        navigate("/grievance-history"); // Navigate to Grievance History
-        break;
-      case 4:
-        navigate("/grievance-status"); // Navigate to Grievance Status
-        break;
-      case 5:
-        navigate("/reports"); // Navigate to Reports
+      case 2:
+        navigate("/reports"); // Navigate to Grievance History
         break;
       default:
         navigate("/home"); // Default navigation
@@ -81,10 +72,7 @@ const AdminNavBar = () => {
           }}
         >
           <Tab label="Dashboard" />
-          <Tab label="Edit Profile" />
           <Tab label="All Users" />
-          <Tab label="Grievance History" />
-          <Tab label="Grievance Status" />
           <Tab label="Reports" />
         </Tabs>
       </Box>

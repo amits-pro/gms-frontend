@@ -16,7 +16,7 @@ const NavBar = () => {
     return (
       <>
         {role === 'Student' && <UserNavBar />}
-        {role === 'admin' && <AdminNavBar />}
+        {role === 'Admin' && <AdminNavBar />}
         {role === 'guest' && <GuestNavBar />}
         {role === 'Grievance Controller' && <GrievanceControllerNavBar />}
         {role === 'Grievance Officer' && <GrievanceManagerNavBar />}

@@ -1,25 +1,25 @@
 import { Routes, Route } from "react-router-dom";
-import FAQ from "./scenes/faq";
+import FAQ from "./scenes/public/faq";
 import { CssBaseline, ThemeProvider, Box } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import LoginForm from "./scenes/auth/login";
 import RegistrationForm from "./scenes/auth/registeruser";
 import Footer from "./global/Footer";
 import { useState, useEffect } from "react";
-import ForgotPassword from "./scenes/forgotpassword";
-import About from "./scenes/about";
-import Resources from "./scenes/resources";
+import ForgotPassword from "./scenes/auth/forgot-password";
+import About from "./scenes/public/about";
+import Resources from "./scenes/public/resources";
 import Homepage from "./scenes/homepage";
-import AllUsers from "./scenes/allusers";
+import AllUsers from "./scenes/admin/users";
 import ProtectedRoute from "../src/security/ProtectedRoute";
 import UpdateUser from "./scenes/auth/update-user";
 import Report from "./scenes/report";
-import AdminDashboard from "./scenes/dashboard";
+import AdminDashboard from "./scenes/admin/dashboard";
 import Settings from "./global/Settings";
 import UserProfile from "./scenes/userprofile";
 import GrievanceHistory from "./scenes/grievance/history";
 import GrievanceForm from "./scenes/grievance/form";
-import ResetPassword from "./scenes/resetpassword";
+import ResetPassword from "./scenes/auth/reset-password";
 import NavBar from "./global/NavBar";
 import { RoleProvider } from "./security/RoleContext";
 import GrievanceUpdate from "./scenes/grievance/update";
@@ -29,6 +29,7 @@ import { DataProvider } from "./security/DataContext";
 import GrievanceManagerDashboard from "./scenes/grievance manager/dashboard";
 import GrievanceProgress from "./scenes/grievance manager/grievance-progress";
 import UserGrievanceDashboard from "./scenes/grievance/dashboard";
+import PieChartExample from "./scenes/report/charts";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -64,6 +65,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/allusers" element={<AllUsers />} />
             
             {/* student, faculty routes */}
             <Route path="/grievance" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><GrievanceForm /></ProtectedRoute>} />
@@ -72,17 +74,15 @@ function App() {
             <Route path="/edit-profile" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><UpdateUser /></ProtectedRoute>} />
 
             {/* admin routes */}
-            <Route path="/allusers" element={<ProtectedRoute component={AllUsers} />} />
-            <Route path="/edit-profile" element={<ProtectedRoute component={UpdateUser} />} />
-            <Route path="/dashboard" element={<ProtectedRoute component={AdminDashboard} />} />
-            <Route path="/reports" element={<ProtectedRoute component={Report} />} />
-            <Route path="/settings" element={<ProtectedRoute component={Settings} />} />
-            <Route path="/grievance-history" element={<ProtectedRoute component={GrievanceHistory} />} />
-            <Route path="/view-profile" element={<ProtectedRoute component={UserProfile} />} />
+            <Route path="/allusers" element={<ProtectedRoute rolesRequired={['Admin']}><AllUsers /></ProtectedRoute>} />
+            <Route path="/edit-profile" element={<UpdateUser/>} />
+            <Route path="/admin-dashboard" element={<ProtectedRoute rolesRequired={['Admin']}><AdminDashboard /></ProtectedRoute>} />
+            <Route path="/settings" element={<Settings />} />
 
             {/* grivance controller routes */}
             <Route path="/grievance-controller/dashboard" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><GrievanceControllerDashboard /></ProtectedRoute>} />
             <Route path="/assign-grievance" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><AssignGrievance /></ProtectedRoute>} />
+            <Route path="/reports" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><PieChartExample /></ProtectedRoute>} />
 
             {/* grivance manager routes */}
             <Route path="/grievance-manager/dashboard" element={<ProtectedRoute rolesRequired={['Grievance Supervisor', 'Grievance Officer']}><GrievanceManagerDashboard /></ProtectedRoute>} />

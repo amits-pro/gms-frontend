@@ -38,7 +38,7 @@ const GuestNavBar = () => {
       case 4:
         navigate("/about");
         break;
-      default:
+        default:
         navigate("/home");
     }
   };

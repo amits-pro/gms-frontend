@@ -88,6 +88,7 @@ const GrievanceManagerNavBar = () => {
           }}
         >
           <Tab label="Grievances" />
+          <Tab label="Reports" />
         </Tabs>
       </Box>
 

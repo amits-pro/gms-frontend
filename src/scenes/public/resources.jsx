@@ -9,7 +9,7 @@ const Resources = () => {
       <h2>Guidelines and Policies</h2>
       <ul>
         <li>
-          <a href="/resources/grievance-guidelines.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/admin/grievance-guidelines.pdf" target="_blank" rel="noopener noreferrer">
             Grievance Submission Guidelines
           </a> - Detailed instructions on how to submit a grievance, including the required documents and procedure.
         </li>
@@ -64,7 +64,7 @@ const Resources = () => {
           </a> - Find information on counseling and wellness resources available to students.
         </li>
         <li>
-          <a href="/resources/staff-support-services.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="./staff-support-services.pdf" target="_blank" rel="noopener noreferrer">
             Staff Support Services
           </a> - Learn about services and support available for university staff members.
         </li>

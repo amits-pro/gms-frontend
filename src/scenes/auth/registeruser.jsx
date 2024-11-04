@@ -115,11 +115,11 @@ const roleDeparmentMap = [
   },
   {
     roleId: 6,
-    role: "System Admin",
+    role: "Admin",
     departments: [
       {
         id:10,
-        name: 'System Admin'
+        name: 'Admin'
       }
     ]
   }
