@@ -6,9 +6,6 @@ import { tokens } from '../../theme'; // Assuming you have a theme set up with t
 import { useGSMContext } from '../../security/RoleContext';
 import { useDataContext } from "../../security/DataContext";
 import { Paper, CircularProgress, Chip } from '@mui/material';
-import { IconButton, Stack } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DataGrid } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 

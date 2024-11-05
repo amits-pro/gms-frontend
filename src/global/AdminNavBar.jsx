@@ -30,7 +30,10 @@ const AdminNavBar = () => {
       case 1:
         navigate("/allusers"); // Navigate to All Users
         break;
-      case 2:
+        case 3:
+          navigate("/faqs"); // Navigate to Grievance History
+          break;
+        case 3:
         navigate("/reports"); // Navigate to Grievance History
         break;
       default:
@@ -73,6 +76,7 @@ const AdminNavBar = () => {
         >
           <Tab label="Dashboard" />
           <Tab label="All Users" />
+          <Tab label="Upload FAQs" />
           <Tab label="Reports" />
         </Tabs>
       </Box>

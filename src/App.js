@@ -16,7 +16,6 @@ import UpdateUser from "./scenes/auth/update-user";
 import Report from "./scenes/report";
 import AdminDashboard from "./scenes/admin/dashboard";
 import Settings from "./global/Settings";
-import UserProfile from "./scenes/userprofile";
 import GrievanceHistory from "./scenes/grievance/history";
 import GrievanceForm from "./scenes/grievance/form";
 import ResetPassword from "./scenes/auth/reset-password";
@@ -30,6 +29,7 @@ import GrievanceManagerDashboard from "./scenes/grievance manager/dashboard";
 import GrievanceProgress from "./scenes/grievance manager/grievance-progress";
 import UserGrievanceDashboard from "./scenes/grievance/dashboard";
 import PieChartExample from "./scenes/report/charts";
+import UploadFAQ from "./scenes/admin/upload-faqs";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -66,6 +66,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/allusers" element={<AllUsers />} />
+            <Route path="/faqs" element={<UploadFAQ />} />
             
             {/* student, faculty routes */}
             <Route path="/grievance" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><GrievanceForm /></ProtectedRoute>} />
