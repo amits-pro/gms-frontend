@@ -12,7 +12,7 @@ import Resources from "./scenes/public/resources";
 import Homepage from "./scenes/homepage";
 import AllUsers from "./scenes/admin/users";
 import ProtectedRoute from "../src/security/ProtectedRoute";
-import UpdateUser from "./scenes/auth/update-user";
+import EditProfile from "./scenes/auth/edit-profile";
 import Report from "./scenes/report";
 import AdminDashboard from "./scenes/admin/dashboard";
 import Settings from "./global/Settings";
@@ -28,8 +28,11 @@ import { DataProvider } from "./security/DataContext";
 import GrievanceManagerDashboard from "./scenes/grievance manager/dashboard";
 import GrievanceProgress from "./scenes/grievance manager/grievance-progress";
 import UserGrievanceDashboard from "./scenes/grievance/dashboard";
-import PieChartExample from "./scenes/report/charts";
+import PieChartExample from "./scenes/grivance controller/charts";
 import UploadFAQ from "./scenes/admin/upload-faqs";
+import GrievanceCharts from "./scenes/grivance controller/charts";
+import UpdateUser from "./scenes/admin/update-user";
+import GrievanceManagerCharts from "./scenes/grievance manager/charts";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -57,6 +60,7 @@ function App() {
       <NavBar></NavBar>
           <Routes>
             {/* Public Routes */}
+            <Route exact path="/" element={<LoginForm />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegistrationForm />} />
             <Route path="/home" element={<Homepage setIsHomeNav={setIsHomeNav} />} />
@@ -67,27 +71,32 @@ function App() {
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/allusers" element={<AllUsers />} />
             <Route path="/faqs" element={<UploadFAQ />} />
-            
+            <Route path="/edit-profile" element={<ProtectedRoute rolesRequired={['Student', 'Faculty', "Admin", "Grievance Controller", "Grievance Supervisor","Grievance Officer"]}><EditProfile /></ProtectedRoute>} />
+
+
             {/* student, faculty routes */}
             <Route path="/grievance" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><GrievanceForm /></ProtectedRoute>} />
             <Route path="/grievances" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><UserGrievanceDashboard /></ProtectedRoute>} />
             <Route path="/grievance-update" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><GrievanceUpdate /></ProtectedRoute>} />
-            <Route path="/edit-profile" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><UpdateUser /></ProtectedRoute>} />
 
             {/* admin routes */}
             <Route path="/allusers" element={<ProtectedRoute rolesRequired={['Admin']}><AllUsers /></ProtectedRoute>} />
-            <Route path="/edit-profile" element={<UpdateUser/>} />
             <Route path="/admin-dashboard" element={<ProtectedRoute rolesRequired={['Admin']}><AdminDashboard /></ProtectedRoute>} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/update-user" element={<ProtectedRoute rolesRequired={['Admin']}><UpdateUser /></ProtectedRoute>} />
 
             {/* grivance controller routes */}
             <Route path="/grievance-controller/dashboard" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><GrievanceControllerDashboard /></ProtectedRoute>} />
             <Route path="/assign-grievance" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><AssignGrievance /></ProtectedRoute>} />
-            <Route path="/reports" element={<ProtectedRoute rolesRequired={['Grievance Controller']}><PieChartExample /></ProtectedRoute>} />
 
             {/* grivance manager routes */}
             <Route path="/grievance-manager/dashboard" element={<ProtectedRoute rolesRequired={['Grievance Supervisor', 'Grievance Officer']}><GrievanceManagerDashboard /></ProtectedRoute>} />
             <Route path="/grievance-progress" element={<ProtectedRoute rolesRequired={['Grievance Supervisor', 'Grievance Officer']}><GrievanceProgress /></ProtectedRoute>} />
+            <Route path="/manager-charts" element={<ProtectedRoute rolesRequired={['Grievance Supervisor', 'Grievance Officer']}><GrievanceManagerCharts /></ProtectedRoute>} />
+
+
+            <Route path="/reports" element={<ProtectedRoute rolesRequired={['Grievance Controller','Grievance Supervisor','Grievance Officer']}><GrievanceCharts /></ProtectedRoute>} />
+
+
         </Routes>
       </DataProvider>
     </RoleProvider>

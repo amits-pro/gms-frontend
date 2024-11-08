@@ -44,11 +44,12 @@ const GrievanceManagerDashboard = () => {
   // Define columns for DataGrid
   const columns = [
     { field: 'id', headerName: 'ID', width: 30 },
-    { field: 'title', headerName: 'Title', width: 250 },
-    { field: 'description', headerName: 'Detail', width: 350 },
-    { field: 'grievanceType', headerName: 'Type', width: 150 },
+    { field: 'title', headerName: 'Title', width: 200 },
+    { field: 'description', headerName: 'Detail', width: 300 },
     { field: 'raisedBy', headerName: 'Submitted By', width: 150 },
     { field: 'raisedOn', headerName: 'Date Submitted', type: 'date', width: 125 },
+    { field: 'assignedUser', headerName: 'Assigned To', width: 100 },
+    { field: 'assignedTo', headerName: 'AssignedTo', width: 100, hide: true},
     { field: 'priority', headerName: 'Priority', width: 70 },
     { field: 'remarks', headerName: 'Remarks', width: 350 },
     
@@ -69,24 +70,45 @@ const GrievanceManagerDashboard = () => {
       headerName: 'Actions',
       width: 100,
       sortable: false,
-      renderCell: (params) => (
-        <Stack direction="row" spacing={1}>
-            <IconButton
-                color="primary"
-                onClick={() => handleEditClick(params.row)}
-                title="Edit"
-            >
-                <FontAwesomeIcon icon={faEdit} />
-            </IconButton>
-            <IconButton
-                color="secondary"
-                onClick={() => handleDeleteClick(params.row)}
-                title="Delete"
-            >
-                <FontAwesomeIcon icon={faTrash} />
-            </IconButton>
-        </Stack>
-    ),
+      
+      renderCell: (params) => {
+        const { status } = params.row;
+    
+        return (
+            <Stack direction="row" spacing={1}>
+                {status !== 'New' && (
+                    <>
+                        <IconButton
+                            color="primary"
+                            onClick={() => handleEditClick(params.row)}
+                            title="Edit"
+                        >
+                            <FontAwesomeIcon icon={faEdit} />
+                        </IconButton>
+                        <IconButton
+                            color="secondary"
+                            onClick={() => handleDeleteClick(params.row)}
+                            title="Delete"
+                        >
+                            <FontAwesomeIcon icon={faTrash} />
+                        </IconButton>
+                    </>
+                )}
+                {status === 'In Progress' && (
+                    <IconButton
+                        color="primary"
+                        onClick={() => handleEditClick(params.row)}
+                        title="Edit"
+                    >
+                        <FontAwesomeIcon icon={faEdit} />
+                    </IconButton>
+                )}
+                {status === 'Closed' && (
+                    <Chip label="No Actions" color="default" variant="outlined" />
+                )}
+            </Stack>
+        );
+    }
     },    
   ];
 

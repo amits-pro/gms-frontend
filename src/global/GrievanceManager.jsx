@@ -31,13 +31,10 @@ const GrievanceManagerNavBar = () => {
     // Navigation based on tab selection
     switch (newValue) {
       case 0:
-        navigate("/grievances"); // Navigate to the Dashboard
+        navigate("/manager-charts"); // Navigate to the Dashboard
         break;
       case 1:
-        navigate("/grievance"); // Navigate to Edit Profile
-        break;
-      case 2:
-        navigate("/edit-profile"); // Navigate to Grievance Status
+        navigate("/grievance-manager/dashboard"); // Navigate to Edit Profile
         break;
       default:
         navigate("/home"); // Default navigation
@@ -87,8 +84,8 @@ const GrievanceManagerNavBar = () => {
             },
           }}
         >
+          <Tab label="Dashboard" />
           <Tab label="Grievances" />
-          <Tab label="Reports" />
         </Tabs>
       </Box>
 

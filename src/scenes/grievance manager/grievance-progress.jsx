@@ -58,7 +58,7 @@ const GrievanceProgress = () => {
         return 'warning';
       case 'In Progress':
         return 'info';
-      case 'Rejected':
+      case 'Declined':
         return 'error';
       default:
         return 'default';
@@ -93,7 +93,7 @@ const GrievanceProgress = () => {
 
   const fetchUserData = async (type) => {
     try {
-      const response = await axios.get(`http://localhost:8080/grievance-officers?grievanceType=${type}`);
+      const response = await axios.get(`http://localhost:8080/grievance-supervisors?grievanceType=${type}`);
       formData.role = '';
       setOfficers(response.data);
     } catch (error) {
@@ -218,11 +218,12 @@ const GrievanceProgress = () => {
                   '& .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000' },
                 }}
               >
-                <MenuItem value="Personal">Personal</MenuItem>
+                <MenuItem value="Hostel">Hostel</MenuItem>
                 <MenuItem value="Academic">Academic</MenuItem>
-                <MenuItem value="Financial">Financial</MenuItem>
-                <MenuItem value="Technical">Technical</MenuItem>
+                <MenuItem value="Finance">Finance</MenuItem>
+                <MenuItem value="Security">Security</MenuItem>
                 <MenuItem value="Administrative">Administrative</MenuItem>
+                <MenuItem value="Campus">Campus</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -270,8 +271,8 @@ const GrievanceProgress = () => {
                   '& .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000' },
                 }}
               >
-                <MenuItem value="Decline">Decline</MenuItem>
-                <MenuItem value="In Progess">In Progress</MenuItem>
+                <MenuItem value="Declined">Declined</MenuItem>
+                <MenuItem value="In Progress">In Progress</MenuItem>
                 <MenuItem value="Resolved">Resolved</MenuItem>
               </Select>
             </FormControl>

@@ -146,10 +146,11 @@ const GrievanceForm = () => {
                   },
                 }}
               >
-                <MenuItem value="Personal">Personal</MenuItem>
+                <MenuItem value="Personal">Hostel</MenuItem>
                 <MenuItem value="Academic">Academic</MenuItem>
-                <MenuItem value="Financial">Financial</MenuItem>
-                <MenuItem value="Technical">Technical</MenuItem>
+                <MenuItem value="Finance">Financial</MenuItem>
+                <MenuItem value="Technical">Campus</MenuItem>
+                <MenuItem value="Security">Security</MenuItem>
                 <MenuItem value="Administrative">Administrative</MenuItem>
               </Select>
             </FormControl>

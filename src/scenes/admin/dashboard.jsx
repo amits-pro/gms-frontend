@@ -4,6 +4,8 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import ReportOutlinedIcon from '@mui/icons-material/ReportOutlined';
 import * as tf from '@tensorflow/tfjs';
+    import { Link } from 'react-router-dom';
+
 
 const AdminDashboard = () => {
   // State to hold the TensorFlow.js prediction result
@@ -44,9 +46,31 @@ const AdminDashboard = () => {
 
       {/* Admin Action Cards */}
       <Grid container spacing={3} sx={{ marginBottom: 4 }}>
-        
 
-        <Grid item xs={12} md={6} lg={4}>
+
+    <Grid item xs={12} md={6} lg={4}>
+      <Paper elevation={3} sx={{ padding: 2 }}>
+        <Box display="flex" alignItems="center">
+          <GroupOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
+          <Typography variant="h6">User Management</Typography>
+        </Box>
+        <Typography variant="body1" sx={{ marginTop: 1 }}>
+          Manage users and their roles.
+        </Typography>
+        <Link to="/allusers" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: 2 }}
+          >
+            Manage Users
+          </Button>
+        </Link>
+      </Paper>
+    </Grid>
+    
+
+{/*         <Grid item xs={12} md={6} lg={4}>
           <Paper elevation={3} sx={{ padding: 2 }}>
             <Box display="flex" alignItems="center">
               <GroupOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
@@ -59,14 +83,14 @@ const AdminDashboard = () => {
               variant="contained"
               color="primary"
               sx={{ marginTop: 2 }}
-              onClick={() => window.location.href = '/user-management'}
+              onClick={() => window.location.href = '/allusers'}
             >
               Manage Users
             </Button>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={6} lg={4}>
+ */}        <Grid item xs={12} md={6} lg={4}>
           <Paper elevation={3} sx={{ padding: 2 }}>
             <Box display="flex" alignItems="center">
               <ReportOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />

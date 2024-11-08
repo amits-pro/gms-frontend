@@ -147,7 +147,7 @@ const UploadFAQ = () => {
           color="primary"
           sx={{ marginTop: '20px', width: '100%' }}
         >
-          Submit Grievance
+          Upload
         </Button>
       </Box>
     </Box>

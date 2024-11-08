@@ -61,7 +61,7 @@ const LoginForm = ({onLogin}) => {
       if (role === 'Student') {
         navigate('/grievances');  // Navigate to admin dashboard
       } else if (role === 'Admin') {
-        navigate('/admin-dashboard');  // Navigate to user dashboard
+        navigate('/allusers');  // Navigate to user dashboard
       } else if (role === 'faculty') {
         navigate('/user-nav');  // Navigate to manager dashboard
       } else if(role==='staff'){

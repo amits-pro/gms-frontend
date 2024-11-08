@@ -30,16 +30,16 @@ const GrievanceControllerNavBar = () => {
     // Navigation based on tab selection
     switch (newValue) {
       case 0:
-        navigate("/grievances"); // Navigate to the Dashboard
+        navigate("/reports"); // Navigate to the Dashboard
         break;
         case 1:
-          navigate("/reports"); // Navigate to the Dashboard
+          navigate("/grievance-controller/dashboard"); // Navigate to the Dashboard
           break;
       }
   };
 
   // Handle Tab Change
-  const handleLogout = () =>  {
+  const handleLogout = () =>  { 
     localStorage.removeItem('authToken');
     navigate("/login");
     changeRole("guest");
@@ -81,8 +81,8 @@ const GrievanceControllerNavBar = () => {
             },
           }}
         >
+          <Tab label="Dashboard" />
           <Tab label="Grievances" />
-          <Tab label="Reports" />
         </Tabs>
       </Box>
 

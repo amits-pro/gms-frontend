@@ -1,7 +1,7 @@
 import { Box, IconButton, useTheme, Tabs, Tab } from "@mui/material";
 import { useContext, useState } from "react";
 import { ColorModeContext, tokens } from "../theme";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import logo from "../assets/applogo.png";
@@ -9,13 +9,17 @@ import { Link } from "react-router-dom";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { useGSMContext } from "../security/RoleContext"; 
+
 
 const AdminNavBar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
   const navigate = useNavigate(); // For navigation
-
+  const { changeRole, changeUserId } = useGSMContext();
+  const location = useLocation();
   // State to track the active tab
   const [selectedTab, setSelectedTab] = useState(0);
 
@@ -24,21 +28,29 @@ const AdminNavBar = () => {
     setSelectedTab(newValue);
     // Navigation based on tab selection
     switch (newValue) {
-      case 0:
+/*       case 0:
         navigate("/admin-dashboard"); // Navigate to the Dashboard
         break;
-      case 1:
+ */      case 0:
         navigate("/allusers"); // Navigate to All Users
         break;
-        case 3:
+        case 1:
           navigate("/faqs"); // Navigate to Grievance History
           break;
-        case 3:
+/*         case 3:
         navigate("/reports"); // Navigate to Grievance History
         break;
-      default:
+ */      default:
         navigate("/home"); // Default navigation
     }
+  };
+
+  const handleLogout = () =>  {
+    localStorage.removeItem('authToken');
+    navigate("/login");
+    changeRole("guest");
+    changeUserId(-1);
+
   };
 
   return (
@@ -74,14 +86,32 @@ const AdminNavBar = () => {
             },
           }}
         >
-          <Tab label="Dashboard" />
+{/*           <Tab label="Dashboard" />
+ */}          
           <Tab label="All Users" />
           <Tab label="Upload FAQs" />
-          <Tab label="Reports" />
+          {/* 
+          <Tab label="Reports" /> */}
         </Tabs>
       </Box>
 
       {/* Right Icons */}
+      <Box display="flex" alignItems="center">
+
+      <Link to="/edit-profile" state={{ referrer: location.pathname }} style={{ color: 'inherit', textDecoration: 'none' }}>
+          <IconButton color="inherit">
+            <PersonOutlinedIcon />
+          </IconButton>
+      </Link> 
+
+      <IconButton onClick={handleLogout} color="inherit">
+          <LogoutOutlinedIcon />
+       </IconButton>
+
+
+      </Box>
+{/* 
+      {/* Right Icons 
       <Box display="flex" alignItems="center">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
@@ -93,15 +123,15 @@ const AdminNavBar = () => {
         <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>
-        {/* Settings Icon Navigation */}
+        {/* Settings Icon Navigation 
         <IconButton onClick={() => navigate("/settings")}>
           <SettingsOutlinedIcon />
         </IconButton>
-        {/* Person Icon Navigation */}
+        {/* Person Icon Navigation 
         <IconButton onClick={() => navigate("/view-profile")}>
           <PersonOutlinedIcon />
         </IconButton>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

@@ -256,11 +256,12 @@ const GrievanceUpdate = () => {
                     },
                   }}
                 >
-                  <MenuItem value="Personal">Personal</MenuItem>
+                  <MenuItem value="Hostel">Hostel</MenuItem>
                   <MenuItem value="Academic">Academic</MenuItem>
-                  <MenuItem value="Financial">Financial</MenuItem>
-                  <MenuItem value="Technical">Technical</MenuItem>
+                  <MenuItem value="Finance">Finance</MenuItem>
+                  <MenuItem value="Campus">Campus</MenuItem>
                   <MenuItem value="Administrative">Administrative</MenuItem>
+                  <MenuItem value="Security">Security</MenuItem>
                 </Select>
               </FormControl>
             </Grid>

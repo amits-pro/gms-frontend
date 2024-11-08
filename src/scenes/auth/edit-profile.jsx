@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, Typography, Grid, Alert } from '@mui/material';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useGSMContext } from '../../security/RoleContext';
+import { useDataContext } from "../../security/DataContext";
 
 
-const UpdateUser = () => {
+const EditProfile = () => {
+
   // Initial state with form data
   const [formData, setFormData] = useState({
     email: '',
@@ -14,21 +16,25 @@ const UpdateUser = () => {
   });
   const [successMessage, setSuccessMessage] = useState('');
   const { userId } = useGSMContext();
+  const { rowData } = useDataContext();
+  const { location } = useLocation();
+  
+
+  
 
   const navigate = useNavigate();
 
   // Fetch user data and populate form (assuming API returns user data based on some ID or context)
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/user-profile?userId=${userId}`); // Example endpoint
-        setFormData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
+      const fetchUserData = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/user-profile?userId=${userId}`); // Example endpoint
+          setFormData(response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+      fetchUserData();
   }, []);
 
   const handleChange = (e) => {
@@ -41,11 +47,27 @@ const UpdateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      formData.userId = userId;
-      await axios.put('http://localhost:8080/users', formData);
+      const response = await axios.put('http://localhost:8080/users', formData);
       setSuccessMessage('User updated successfully!');
+      console.log(response.data.role);
+      let navigateTo = '';
+      switch(response.data.role) {
+        case "Student":
+          navigateTo = '/grievances';
+          break;  
+         case "Grievance Controller":
+          navigateTo = '/reports';
+          break;
+         case "Grievance Supervisor":
+            navigateTo = '/reports';
+            break;
+          case "Admin":
+              navigateTo = '/allusers';
+              break;
+  
+      }
       setTimeout(() => {
-        navigate('/grievances');
+        navigate(navigateTo);
       }, 2000); // 2-second delay
     } catch (error) {
       console.error('Update Error:', error);
@@ -153,4 +175,4 @@ const UpdateUser = () => {
   );
 };
 
-export default UpdateUser;
+export default EditProfile;
