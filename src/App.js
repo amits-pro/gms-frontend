@@ -72,7 +72,7 @@ function App() {
             <Route path="/allusers" element={<AllUsers />} />
             <Route path="/faqs" element={<UploadFAQ />} />
             <Route path="/edit-profile" element={<ProtectedRoute rolesRequired={['Student', 'Faculty', "Admin", "Grievance Controller", "Grievance Supervisor","Grievance Officer"]}><EditProfile /></ProtectedRoute>} />
-
+            <Route path="/footer"element={<Footer/>}/>
 
             {/* student, faculty routes */}
             <Route path="/grievance" element={<ProtectedRoute rolesRequired={['Student', 'Faculty']}><GrievanceForm /></ProtectedRoute>} />

@@ -6,10 +6,7 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import logo from "../assets/applogo.png";
 import { Link } from "react-router-dom";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import { Logout, LogoutOutlined } from "@mui/icons-material";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useGSMContext } from "../security/RoleContext"; 
 
@@ -94,22 +91,14 @@ const UserNavBar = () => {
 
       {/* Right Icons */}
       <Box display="flex" alignItems="center">
-{/*        <IconButton onClick={colorMode.toggleColorMode}>
+     <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <DarkModeOutlinedIcon />
           ) : (
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-         <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon to="/settings" />
-        </IconButton>
-        
- */}    
-
+         
       <Link to="/edit-profile" style={{ color: 'inherit', textDecoration: 'none' }}>
           <IconButton color="inherit">
             <PersonOutlinedIcon />

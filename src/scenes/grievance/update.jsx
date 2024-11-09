@@ -230,7 +230,7 @@ const GrievanceUpdate = () => {
             </Grid>
   
             {/* Dropdown for Grievance Type */}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={3}>
               <FormControl fullWidth margin="normal" required>
                 <InputLabel id="grievanceType-label" sx={{
                   color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
@@ -267,7 +267,7 @@ const GrievanceUpdate = () => {
             </Grid>
   
             {/* Dropdown for Priority */}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={3}>
               <FormControl fullWidth margin="normal" required>
                 <InputLabel id="priority-label" sx={{
                   color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
@@ -341,7 +341,7 @@ const GrievanceUpdate = () => {
             type="submit"
             variant="contained"
             color="primary"
-            sx={{ marginTop: '20px', width: '1000px' }}
+            sx={{ marginTop: '20px', marginLeft: '370px', width: '200px' }}
           >
             Update Grievance
           </Button>

@@ -6,10 +6,7 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import logo from "../assets/applogo.png";
 import { Link } from "react-router-dom";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import { Logout, LogoutOutlined } from "@mui/icons-material";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useGSMContext } from "../security/RoleContext"; 
 
