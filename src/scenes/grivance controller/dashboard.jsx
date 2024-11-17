@@ -5,7 +5,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { useGSMContext } from '../../security/RoleContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { IconButton, Stack } from '@mui/material';
 import { useDataContext } from "../../security/DataContext";
 
@@ -70,7 +70,7 @@ const GrievanceControllerDashboard = () => {
       renderCell: (params) => (
         <Stack direction="row" spacing={1}>
             <IconButton
-                color="primary"
+                color="secondary"
                 onClick={() => handleEditClick(params.row)}
                 title="Edit"
             >
@@ -111,8 +111,8 @@ const handleDeleteClick = (row) => {
 
   return (
     <Box sx={{ padding: 4 }}>
-      <Typography variant="h4" gutterBottom align="center">
-        Grievance Controller - Dashboard
+      <Typography variant="h2" gutterBottom align="center">
+        List Of All Grievances in Banasthali Vidyapeeth
       </Typography>
 
       {/* Display loading spinner while data is being fetched */}

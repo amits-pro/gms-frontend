@@ -51,7 +51,7 @@ const AdminDashboard = () => {
     <Grid item xs={12} md={6} lg={4}>
       <Paper elevation={3} sx={{ padding: 2 }}>
         <Box display="flex" alignItems="center">
-          <GroupOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
+          <GroupOutlinedIcon sx={{ fontSize: 40, color: 'secondary.main', marginRight: 2 }} />
           <Typography variant="h6">User Management</Typography>
         </Box>
         <Typography variant="body1" sx={{ marginTop: 1 }}>
@@ -60,7 +60,7 @@ const AdminDashboard = () => {
         <Link to="/allusers" style={{ textDecoration: 'none' }}>
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             sx={{ marginTop: 2 }}
           >
             Manage Users
@@ -70,30 +70,10 @@ const AdminDashboard = () => {
     </Grid>
     
 
-{/*         <Grid item xs={12} md={6} lg={4}>
+       <Grid item xs={12} md={6} lg={4}>
           <Paper elevation={3} sx={{ padding: 2 }}>
             <Box display="flex" alignItems="center">
-              <GroupOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
-              <Typography variant="h6">User Management</Typography>
-            </Box>
-            <Typography variant="body1" sx={{ marginTop: 1 }}>
-              Manage users and their roles.
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ marginTop: 2 }}
-              onClick={() => window.location.href = '/allusers'}
-            >
-              Manage Users
-            </Button>
-          </Paper>
-        </Grid>
-
- */}        <Grid item xs={12} md={6} lg={4}>
-          <Paper elevation={3} sx={{ padding: 2 }}>
-            <Box display="flex" alignItems="center">
-              <ReportOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
+              <ReportOutlinedIcon sx={{ fontSize: 40, color: 'secondary.main', marginRight: 2 }} />
               <Typography variant="h6">View Reports</Typography>
             </Box>
             <Typography variant="body1" sx={{ marginTop: 1 }}>
@@ -101,7 +81,7 @@ const AdminDashboard = () => {
             </Typography>
             <Button
               variant="contained"
-              color="primary"
+              color="secondary"
               sx={{ marginTop: 2 }}
               onClick={() => window.location.href = '/reports'}
             >
@@ -113,7 +93,7 @@ const AdminDashboard = () => {
         <Grid item xs={12} md={6} lg={4}>
           <Paper elevation={3} sx={{ padding: 2 }}>
             <Box display="flex" alignItems="center">
-              <NotificationsOutlinedIcon sx={{ fontSize: 40, color: 'primary.main', marginRight: 2 }} />
+              <NotificationsOutlinedIcon sx={{ fontSize: 40, color: 'secondary.main', marginRight: 2 }} />
               <Typography variant="h6">Notifications</Typography>
             </Box>
             <Typography variant="body1" sx={{ marginTop: 1 }}>
@@ -121,7 +101,7 @@ const AdminDashboard = () => {
             </Typography>
             <Button
               variant="contained"
-              color="primary"
+              color="secondary"
               sx={{ marginTop: 2 }}
               onClick={() => window.location.href = '/notifications'}
             >
@@ -138,10 +118,10 @@ const AdminDashboard = () => {
             <Typography variant="h6" align="center" gutterBottom>
               Total Grievances
             </Typography>
-            <Typography variant="h3" color="primary" align="center">
+            <Typography variant="h3" color="secondary" align="center">
               120
             </Typography>
-            <Typography variant="body1" align="center">
+            <Typography variant="body1" align="center" >
               Total grievances submitted so far.
             </Typography>
           </Paper>
@@ -163,7 +143,7 @@ const AdminDashboard = () => {
 
         {/* TensorFlow.js Prediction for Future Grievances */}
         <Grid item xs={12}>
-          <Paper elevation={3} sx={{ padding: 3 }}>
+          <Paper elevation={3} sx={{ padding: 3 }}color="secondary">
             <Typography variant="h6" align="center" gutterBottom>
               Predicted Future Grievances
             </Typography>

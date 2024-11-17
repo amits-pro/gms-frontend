@@ -333,8 +333,8 @@ const GrievanceProgress = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          sx={{ marginTop: '20px', width: '100%' }}
+          color="secondary"
+          sx={{ marginTop: '20px', width: '50%',marginLeft:'260px' }}
         >
           Update
         </Button>

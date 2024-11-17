@@ -81,9 +81,10 @@ const EditProfile = () => {
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: '50px',
+        outlineColor:'white',
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h2" gutterBottom>
         Update Profile
       </Typography>
 
@@ -97,6 +98,7 @@ const EditProfile = () => {
               value={formData.userId}
               onChange={handleChange}
               margin="normal"
+              outlineColor="white"
               disabled // User ID cannot be changed
             />
           </Grid>
@@ -165,8 +167,8 @@ const EditProfile = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          sx={{ marginTop: '20px', width: '100%' }}
+          color="secondary"
+          sx={{ marginTop: '20px', width: '50%',marginLeft:'150px' }}
         >
           Update
         </Button>

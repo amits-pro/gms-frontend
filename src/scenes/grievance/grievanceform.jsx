@@ -46,16 +46,17 @@ const GrievanceForm = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '50px',
+        marginTop: '160px',
+      
       }}
     >
       <Typography variant="h3" gutterBottom>
         Grievance Form
       </Typography>
       <Box component="form" onSubmit={handleGrievance} sx={{ width: '1000px' }}>
-        <Grid container spacing={3}>
+        <Grid container spacing={2} alignContent="center">
           {/* TextField for Title */}
-          <Grid item xs={12}>
+          <Grid item xs={12}  >
             <TextField
               fullWidth
               label="Title"
@@ -105,8 +106,8 @@ const GrievanceForm = () => {
                 '& .MuiInputLabel-root': {
                   color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // White label in dark mode
                 },
-                '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
+                '& fieldset': {
+                    '& .MuiOutlinedInput-root': {
                     borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // White border in dark mode
                   },
                   '&:hover fieldset': {
@@ -157,7 +158,7 @@ const GrievanceForm = () => {
           </Grid>
 
           {/* Dropdown for Priority */}
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={6} >
             <FormControl fullWidth margin="normal" required>
               <InputLabel id="priority-label" sx={{
                 color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
@@ -194,8 +195,8 @@ const GrievanceForm = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          sx={{ marginTop: '20px', width: '100%' }}
+          color="secondary"
+          sx={{ marginTop: '20px', width: '50%', marginLeft:'180px' }}
         >
           Submit Grievance
         </Button>

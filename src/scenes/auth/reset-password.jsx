@@ -42,7 +42,7 @@ const ResetPassword = () => {
         backgroundColor: 'background.default',
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h2" gutterBottom>
         Reset Password
       </Typography>
 

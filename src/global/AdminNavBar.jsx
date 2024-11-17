@@ -11,6 +11,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useGSMContext } from "../security/RoleContext"; 
+import { Cases } from "@mui/icons-material";
 
 
 const AdminNavBar = () => {
@@ -31,16 +32,13 @@ const AdminNavBar = () => {
 /*       case 0:
         navigate("/admin-dashboard"); // Navigate to the Dashboard
         break;
- */      case 0:
+ */    case 0:
         navigate("/allusers"); // Navigate to All Users
         break;
         case 1:
           navigate("/faqs"); // Navigate to Grievance History
           break;
-/*         case 3:
-        navigate("/reports"); // Navigate to Grievance History
-        break;
- */      default:
+     default:
         navigate("/home"); // Default navigation
     }
   };
@@ -86,8 +84,7 @@ const AdminNavBar = () => {
             },
           }}
         >
-{/*           <Tab label="Dashboard" />
- */}          
+         {/* <Tab label="Dashboard" /> */}         
           <Tab label="All Users" />
           <Tab label="Upload FAQs" />
           {/* 
@@ -97,6 +94,13 @@ const AdminNavBar = () => {
 
       {/* Right Icons */}
       <Box display="flex" alignItems="center">
+      <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
+          </IconButton>
 
       <Link to="/edit-profile" state={{ referrer: location.pathname }} style={{ color: 'inherit', textDecoration: 'none' }}>
           <IconButton color="inherit">
@@ -110,28 +114,8 @@ const AdminNavBar = () => {
 
 
       </Box>
-{/* 
-      {/* Right Icons 
-      <Box display="flex" alignItems="center">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        {/* Settings Icon Navigation 
-        <IconButton onClick={() => navigate("/settings")}>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        {/* Person Icon Navigation 
-        <IconButton onClick={() => navigate("/view-profile")}>
-          <PersonOutlinedIcon />
-        </IconButton>
-      </Box> */}
+
+        
     </Box>
   );
 };

@@ -164,10 +164,10 @@ const UpdateUser = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{ marginTop: '20px', width: '100%' }}
         >
-          Update
+          Update User
         </Button>
       </Box>
     </Box>

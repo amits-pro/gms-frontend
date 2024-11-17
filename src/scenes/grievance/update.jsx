@@ -275,7 +275,7 @@ const GrievanceUpdate = () => {
                 <Select
                   labelId="priority-label"
                   id="priority"
-                  name="priority"
+                  name="priority" 
                   value={selectedPriority}
                   onChange={handleChange}
                   label="Priority"

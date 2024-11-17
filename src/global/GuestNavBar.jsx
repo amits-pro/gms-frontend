@@ -13,16 +13,15 @@ const GuestNavBar = () => {
   const colorMode = useContext(ColorModeContext);
   const navigate = useNavigate(); // For navigation
 
-
   // State to track the active tab
   const [selectedTab, setSelectedTab] = useState(0);
 
- 
   // Handle Tab Change
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
     // Navigation based on tab selection
     switch (newValue) {
+    
       case 0:
         navigate("/login");
         break;
@@ -38,7 +37,7 @@ const GuestNavBar = () => {
       case 4:
         navigate("/about");
         break;
-        default:
+      default:
         navigate("/home");
     }
   };
@@ -61,7 +60,7 @@ const GuestNavBar = () => {
             }}
           />
         </Link>
-        {/* TABS FOR NAVIGATION */}
+        {/* Tabs for Navigation */}
         <Tabs
           value={selectedTab}
           onChange={handleTabChange}
@@ -82,7 +81,12 @@ const GuestNavBar = () => {
           <Tab label="About" />
         </Tabs>
       </Box>
-
+      {/* Theme Toggle Icon */}
+      <Box>
+        <IconButton onClick={colorMode.toggleColorMode} sx={{ color: theme.palette.mode === 'dark' ? 'white' : 'black' }}>
+          {theme.palette.mode === 'dark' ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
+        </IconButton>
+      </Box>
     </Box>
   );
 };

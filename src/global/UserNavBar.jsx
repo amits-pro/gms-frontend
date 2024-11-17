@@ -27,15 +27,14 @@ const UserNavBar = () => {
     console.log("value:"+newValue);
     // Navigation based on tab selection
     switch (newValue) {
+      
       case 0:
         navigate("/grievances"); // Navigate to the Dashboard
         break;
       case 1:
-        navigate("/grievance"); // Navigate to Edit Profile
+        navigate("/grievanceform"); // Navigate to Edit Profile
         break;
-      case 2:
-        navigate("/edit-profile"); // Navigate to Grievance Status
-        break;
+      
       default:
         navigate("/home"); // Default navigation
     }

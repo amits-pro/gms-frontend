@@ -31,7 +31,7 @@ const GrievanceManagerNavBar = () => {
         navigate("/manager-charts"); // Navigate to the Dashboard
         break;
       case 1:
-        navigate("/grievance-manager/dashboard"); // Navigate to Edit Profile
+        navigate("/grievance-manager/list"); // Navigate to Edit Profile
         break;
       default:
         navigate("/home"); // Default navigation
@@ -86,24 +86,15 @@ const GrievanceManagerNavBar = () => {
         </Tabs>
       </Box>
 
-      {/* Right Icons */}
+    
       <Box display="flex" alignItems="center">
-{/*        <IconButton onClick={colorMode.toggleColorMode}>
+       <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <DarkModeOutlinedIcon />
           ) : (
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-         <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon to="/settings" />
-        </IconButton>
-        
- */}    
-
       <Link to="/edit-profile" style={{ color: 'inherit', textDecoration: 'none' }}>
           <IconButton color="inherit">
             <PersonOutlinedIcon />
@@ -113,8 +104,6 @@ const GrievanceManagerNavBar = () => {
       <IconButton onClick={handleLogout} color="inherit">
           <LogoutOutlinedIcon />
        </IconButton>
-
-
       </Box>
     </Box>
   );

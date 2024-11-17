@@ -79,7 +79,7 @@ const GrievanceManagerDashboard = () => {
                 {status !== 'New' && (
                     <>
                         <IconButton
-                            color="primary"
+                            color="secondary"
                             onClick={() => handleEditClick(params.row)}
                             title="Edit"
                         >

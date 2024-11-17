@@ -144,11 +144,11 @@ const UploadFAQ = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          sx={{ marginTop: '20px', width: '100%' }}
+          color="secondary"
+          sx={{ marginTop: '20px', width: '50%', marginLeft:'240px'}}
         >
           Upload
-        </Button>
+        </Button >
       </Box>
     </Box>
   );

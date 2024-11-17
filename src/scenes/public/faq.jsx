@@ -38,7 +38,7 @@ const FAQ = () => {
 
   return (
     <Box sx={{
-      padding: '20px',
+      padding: '40px',
       width: '100%', 
       height: '100%', // Maximize height to fit the container
       maxWidth: '1200px', // Optional: limit max width
@@ -49,7 +49,7 @@ const FAQ = () => {
       boxSizing: 'border-box'
     }}>
       {/* Title */}
-      <Typography variant="h4" component="h2" gutterBottom sx={{ color: '#ffffff', fontSize: '2rem', fontWeight: 'bold' }}>
+      <Typography variant="h4" component="h2" gutterBottom sx={{ color: '#ffffff', fontSize: '2rem', fontWeight: 'bold', textAlign:"center"}}>
         Frequently Asked Questions (FAQs)
       </Typography>
 

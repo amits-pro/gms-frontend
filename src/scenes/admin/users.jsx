@@ -58,14 +58,14 @@ const AllUsers = () => {
       renderCell: (params) => (
         <Stack direction="row" spacing={1}>
             <IconButton
-                color="primary"
+                color="secondary"
                 onClick={() => handleEditClick(params.row)}
                 title="Edit"
             >
                 <FontAwesomeIcon icon={faEdit} />
             </IconButton>
             <IconButton
-                color="primary"
+                color="secondary"
                 onClick={() => handleDeleteClick(params.row)}
                 title="Delete"
             >
@@ -115,8 +115,8 @@ const handleDeleteClick = async (row) => {
 
   return (
     <Box sx={{ padding: 4 }}>
-      <Typography variant="h4" gutterBottom align="center">
-        Users -
+      <Typography variant="h2" gutterBottom align="center">
+       All Users 
       </Typography>
 
       {/* Display loading spinner while data is being fetched */}

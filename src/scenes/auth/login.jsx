@@ -48,20 +48,17 @@ const LoginForm = ({ onLogin }) => {
             navigate('/grievances');
             break;
           case 'Admin':
-            navigate('/allusers');
+            navigate('/admin-dashboard');
             break;
           case 'faculty':
             navigate('/user-nav');
             break;
-          case 'staff':
-            navigate('/dashboard');
-            break;
           case 'Grievance Controller':
-            navigate('/grievance-controller/dashboard');
+            navigate('/reports');
             break;
           case 'Grievance Supervisor':
           case 'Grievance Officer':
-            navigate('/grievance-manager/dashboard');
+            navigate('/manager-charts');
             break;
           default:
             navigate('/dashboard');
@@ -83,14 +80,14 @@ const LoginForm = ({ onLogin }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '10px',
+        marginTop: '180px',
         color: 'primary',
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        Login
+      <Typography variant="h2" gutterBottom>
+        Login 
       </Typography>
-      <Box component="form" onSubmit={handleLogin} sx={{ width: '300px' }}>
+      <Box component="form" onSubmit={handleLogin} sx={{ width: '389px'}}>
         <TextField
           fullWidth
           label="User Id"
@@ -115,7 +112,7 @@ const LoginForm = ({ onLogin }) => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{ marginLeft: '100px', width: '40%', display: 'flex' }}
         >
           Login

@@ -1,6 +1,5 @@
 // src/NavBar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useGSMContext } from '../security/RoleContext';
 import AdminNavBar from './AdminNavBar';
 import GuestNavBar from './GuestNavBar';

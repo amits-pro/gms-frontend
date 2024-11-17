@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Grid,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel
-} from '@mui/material';
+import {TextField,Button,Box,Typography,Grid,Select,MenuItem,FormControl,InputLabel} from '@mui/material';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
@@ -131,6 +121,7 @@ const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     userId: '',
     role: '',
+    salutation:'',
     department: '',
     firstName: '',
     lastName: '',
@@ -144,8 +135,10 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState("");
+  const [selectedSalutation, setSalutation] = useState("");
   const [departments, setDepartments] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState("");
+
 
   const handleChange = (e) => {
     setFormData({
@@ -164,12 +157,15 @@ const RegistrationForm = () => {
     setSelectedRole(roleId);
     setDepartments(roleDeparmentMap[roleId].departments);
     setSelectedDepartment(""); // Reset department selection
-    
 
   };
 
   const handleDepartmentChange = (event) => {
     setSelectedDepartment(event.target.value);
+  };
+
+  const handleSalutationChange = (event) => {
+    setSalutation(event.target.value);
   };
 
   const getDepartmentNameById = (departmentId) => {
@@ -199,6 +195,8 @@ const RegistrationForm = () => {
     setPhoneError(''); // Clear error message if validation passes
     formData.role = roleDeparmentMap[selectedRole].role;
     formData.department = getDepartmentNameById(selectedDepartment);
+    formData.salutation = selectedSalutation;
+
     console.log(formData);
 
     try {
@@ -216,10 +214,10 @@ const RegistrationForm = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '2px',
+        marginTop: '160px',
       }}
     >
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h2" gutterBottom>
         Register
       </Typography>
       <Box component="form" onSubmit={handleSubmit} sx={{ width: '800px' }}>
@@ -291,14 +289,52 @@ const RegistrationForm = () => {
                     {item.role}
                   </MenuItem>
                 ))}
-{/*                 <MenuItem value="Faculty">Faculty</MenuItem>
-                <MenuItem value="Student">Student</MenuItem>
-                <MenuItem value="Grievance Officer">Grievance Officer</MenuItem>
-                <MenuItem value="Grievance Controller">Grievance Controller</MenuItem>
+{/*            
  */}              </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+
+          {/* Dropdown for Salutation */}
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth margin="normal" required>
+              <InputLabel
+                id="salutation"
+                sx={{
+                  color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                }}
+              >
+                Salutation
+              </InputLabel>
+              <Select
+                labelId="salutation"
+                id="salutation"
+                name="role"
+                value={selectedSalutation}
+                onChange={handleSalutationChange}
+                label="Salutation"
+                sx={{
+                  color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                  },
+                }}
+              >
+                <MenuItem value="Miss">Miss</MenuItem>
+                <MenuItem value="Mrs.">Mrs.</MenuItem>
+                <MenuItem value="Mr.">Mr.</MenuItem>
+                <MenuItem value="Dr.">Dr.</MenuItem>
+           </Select>
+            </FormControl>
+          </Grid>
+         
+         
+          <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
               label="First Name"
@@ -328,7 +364,8 @@ const RegistrationForm = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          
+          <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
               label="Last Name"
@@ -358,7 +395,7 @@ const RegistrationForm = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12} >
+          <Grid item xs={12}  >
 
             <FormControl fullWidth margin="normal" required>
               <InputLabel
@@ -378,8 +415,8 @@ const RegistrationForm = () => {
                 label="Department"
                 sx={{
                   color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                  borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
                   '& .MuiOutlinedInput-notchedOutline': {
-                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
                   },
                   '&:hover .MuiOutlinedInput-notchedOutline': {
                     borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
@@ -394,43 +431,12 @@ const RegistrationForm = () => {
                     {item.name}
                   </MenuItem>
                 ))}
-{/*                 <MenuItem value="Faculty">Faculty</MenuItem>
-                <MenuItem value="Student">Student</MenuItem>
-                <MenuItem value="Grievance Officer">Grievance Officer</MenuItem>
-                <MenuItem value="Grievance Controller">Grievance Controller</MenuItem>
- */}              </Select>
+           </Select>
             </FormControl>  
 
-            {/* <TextField
-              fullWidth
-              label="Department"
-              name="department  "
-              value={formData.firstName}
-              onChange={handleChange}
-              margin="normal"
-              required
-              sx={{
-                '& .MuiInputBase-input': {
-                  color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-                },
-                '& .MuiInputLabel-root': {
-                  color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-                },
-                '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
-                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-                  },
-                },
-                }}
-            /> */}
+            
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               label="Email"
@@ -462,7 +468,7 @@ const RegistrationForm = () => {
             />
           </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Phone"
@@ -496,7 +502,7 @@ const RegistrationForm = () => {
               />
             </Grid>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               label="Password"
@@ -527,7 +533,7 @@ const RegistrationForm = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               label="Confirm Password"
@@ -565,8 +571,9 @@ const RegistrationForm = () => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          sx={{ marginTop: '20px', width: '100%' }}
+          color="secondary"
+          alignContent="centre"
+          sx={{ marginTop: '20px',marginLeft:'160px', width: '50%',justifyContent:"center" }}
         >
           Register
         </Button>

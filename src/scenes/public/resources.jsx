@@ -19,25 +19,12 @@ const Resources = () => {
           </a> - The official policy document explaining the types of grievances that can be filed and the university's responsibilities in resolving them.
         </li>
         <li>
-          <a href="/resources/faq.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/faq" target="_blank" rel="noopener noreferrer">
             Frequently Asked Questions (FAQs)
           </a> - A helpful guide that answers common questions related to the GMS process and other concerns.
         </li>
       </ul>
 
-      <h2>Forms and Templates</h2>
-      <ul>
-        <li>
-          <a href="/resources/grievance-form.pdf" target="_blank" rel="noopener noreferrer">
-            Grievance Submission Form
-          </a> - Download the official grievance submission form to fill out and submit via the system.
-        </li>
-        <li>
-          <a href="/resources/appeal-form.pdf" target="_blank" rel="noopener noreferrer">
-            Grievance Appeal Form
-          </a> - If your grievance requires an appeal, use this form to submit your appeal for further review.
-        </li>
-      </ul>
 
       <h2>Contact Information</h2>
       <p>If you need further assistance or wish to speak with a grievance officer, please refer to the contact details below:</p>
